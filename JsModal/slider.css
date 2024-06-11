@@ -1,0 +1,68 @@
+.slider-container {
+  position: relative;
+  width: 90%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  flex: 0 0 100%;
+  width: 80%;
+  text-align: center;
+  padding: 20px;
+  background-color: #f0f0f0;
+  /* background-image: url("./assets/cute-european-robin-daylight.jpg"); */
+}
+.slide1 {
+  background-image: url("./assets/cute-european-robin-daylight.jpg");
+  height: 500px;
+  object-fit: fill;
+  width: 700px;
+  background-position: center;
+  background-size: contain;
+  /* background-repeat: no-repeat; */
+}
+.slide2 {
+  background-image: url("./assets/multi-colored-macaw-perching-branch-tropical-forest-generative-ai.jpg");
+  height: 500px;
+  width: 700px;
+  object-fit: fill;
+  background-position: center;
+  background-size: contain;
+  /* background-repeat: no-repeat; */
+}
+.slide3 {
+  background-image: url("./assets/pine-warbler.jpg");
+  height: 500px;
+  width: 700px;
+  object-fit: fill;
+  background-position: center;
+  background-size: contain;
+  /* background-repeat: no-repeat; */
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1;
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
+}

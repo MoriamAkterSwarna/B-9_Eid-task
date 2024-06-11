@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown Timer</title>
+    <style>
+      .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 15%;
+      }
+      #timer {
+        font-size: 24px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      span {
+        padding: 30px;
+        background-color: #a1f1f1;
+        margin: 5px;
+        border-radius: 5px;
+        border: 2px solid aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Countdown Timer</h1>
+      <div id="timer"></div>
+    </div>
+
+    <script>
+      // Set the target date (in UTC format)
+      const targetDate = new Date("2024-06-10T00:00:00Z").getTime();
+
+      // Update the timer display every second
+      const timer = document.getElementById("timer");
+      const countdown = setInterval(() => {
+        // Get the current date and time
+        const currentDate = new Date().getTime();
+
+        // Calculate the remaining time in milliseconds
+        const timeDifference = targetDate - currentDate;
+
+        // Calculate days, hours, minutes, and seconds
+        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor(
+          (timeDifference % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+        // Display the remaining time
+        timer.innerHTML = `<p> <span>${days}d</span> <span>${hours}h</span>  <span>${minutes}m</span> <span>${seconds}s</span> </p>
+        `;
+        // <p> Day : Hour : Minute : Second </p>
+
+        // Check if the countdown is finished
+        if (timeDifference < 0) {
+          clearInterval(countdown); // Stop the countdown
+          timer.textContent = "Countdown expired!"; // Display expiration message
+        }
+      }, 1000); // Update every second
+    </script>
+  </body>
+</html>
